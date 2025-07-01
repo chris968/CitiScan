@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CityScan - Turn Your Photos Into Perfect Adventures</title>
+    <title>CitiScan - Turn Photos Into Perfect Adventures</title>
     <style>
         * {
             margin: 0;
@@ -41,21 +41,26 @@
             display: flex;
             align-items: center;
             color: white;
-            font-size: 1.8rem;
-            font-weight: bold;
-            letter-spacing: -0.5px;
-        }
-
-        .logo::before {
-            content: "🔍";
-            margin-right: 0.5rem;
             font-size: 1.5rem;
-            animation: scan 2s ease-in-out infinite;
+            font-weight: bold;
         }
 
-        @keyframes scan {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1) rotate(5deg); }
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 0.5rem;
+            background: white;
+            border-radius: 8px;
+            padding: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-icon svg {
+            width: 100%;
+            height: 100%;
+            fill: #2D5A6B;
         }
 
         .nav-links {
@@ -67,7 +72,6 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s;
-            font-weight: 500;
         }
 
         .nav-links a:hover {
@@ -94,29 +98,6 @@
             background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
         }
 
-        .floating-elements {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-        }
-
-        .floating-icon {
-            position: absolute;
-            font-size: 2rem;
-            opacity: 0.1;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .floating-icon:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
-        .floating-icon:nth-child(2) { top: 60%; right: 15%; animation-delay: 2s; }
-        .floating-icon:nth-child(3) { bottom: 30%; left: 20%; animation-delay: 4s; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
-        }
-
         .hero-container {
             max-width: 1200px;
             margin: 0 auto;
@@ -130,38 +111,24 @@
         }
 
         .hero-content h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: white;
             margin-bottom: 1rem;
-            line-height: 1.1;
+            line-height: 1.2;
             animation: fadeInUp 1s ease-out;
-            font-weight: 800;
-        }
-
-        .hero-content .highlight {
-            background: linear-gradient(45deg, #F4A24C, #E6912A);
-            background-clip: text;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .hero-content p {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             animation: fadeInUp 1s ease-out 0.2s both;
         }
 
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-
-        .cta-primary {
+        .cta-button {
             background: linear-gradient(45deg, #F4A24C, #E6912A);
             color: white;
-            padding: 1.2rem 3rem;
+            padding: 1rem 2.5rem;
             border: none;
             border-radius: 50px;
             font-size: 1.2rem;
@@ -169,32 +136,12 @@
             cursor: pointer;
             transition: all 0.3s;
             box-shadow: 0 10px 30px rgba(244, 162, 76, 0.3);
-            text-decoration: none;
-            display: inline-block;
+            animation: fadeInUp 1s ease-out 0.4s both;
         }
 
-        .cta-primary:hover {
+        .cta-button:hover {
             transform: translateY(-3px);
             box-shadow: 0 15px 40px rgba(244, 162, 76, 0.4);
-        }
-
-        .cta-secondary {
-            background: transparent;
-            color: white;
-            padding: 1.2rem 3rem;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            border-radius: 50px;
-            font-size: 1.2rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-decoration: none;
-            display: inline-block;
-        }
-
-        .cta-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: white;
         }
 
         .hero-visual {
@@ -203,359 +150,433 @@
         }
 
         .phone-mockup {
-            background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-            border-radius: 35px;
-            padding: 25px;
-            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+            background: #1a1a1a;
+            border-radius: 30px;
+            padding: 20px;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
             position: relative;
-            transform: rotate(-8deg);
+            transform: rotate(-5deg);
             transition: transform 0.3s;
         }
 
         .phone-mockup:hover {
-            transform: rotate(-3deg) scale(1.05);
+            transform: rotate(0deg) scale(1.05);
         }
 
         .screen {
             background: linear-gradient(180deg, #4A9BC2, #2D5A6B);
-            border-radius: 25px;
-            padding: 2.5rem;
+            border-radius: 20px;
+            padding: 2rem;
             color: white;
             text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .screen::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="2" fill="rgba(255,255,255,0.1)"/></svg>');
         }
 
         .demo-photo {
             width: 100%;
-            height: 160px;
+            height: 150px;
             background: linear-gradient(45deg, #F4A24C, #E6912A);
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            margin-bottom: 1rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 4rem;
+            font-size: 3rem;
             animation: pulse 2s infinite;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .demo-photo::after {
-            content: 'SCAN';
-            position: absolute;
-            bottom: 10px;
-            right: 15px;
-            font-size: 0.8rem;
-            font-weight: bold;
-            opacity: 0.8;
         }
 
         .route-preview {
-            background: rgba(255, 255, 255, 0.15);
-            border-radius: 15px;
-            padding: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 1rem;
             margin-top: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.1);
         }
 
-        .route-item {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 0.8rem;
-            font-size: 0.9rem;
+        /* Planning Section */
+        .planning {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
         }
 
-        .route-item:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Features Section */
-        .features {
-            padding: 6rem 0;
-            background: linear-gradient(180deg, #FAFAFA, #F0F0F0);
-        }
-
-        .features-container {
-            max-width: 1200px;
+        .planning-container {
+            max-width: 1000px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3rem;
+            font-size: 2.5rem;
             color: #2D5A6B;
-            margin-bottom: 1rem;
-            font-weight: 800;
+            margin-bottom: 3rem;
         }
 
-        .section-subtitle {
+        .planning-content {
             text-align: center;
+        }
+
+        .planning-problem {
+            margin-bottom: 3rem;
+        }
+
+        .problem-text {
             font-size: 1.3rem;
             color: #666;
-            margin-bottom: 4rem;
+            font-style: italic;
+            line-height: 1.6;
+        }
+
+        .planning-solution {
+            margin-bottom: 3rem;
+        }
+
+        .solution-text {
+            font-size: 1.4rem;
+            color: #2D5A6B;
+            font-weight: 600;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .snap-scan-explore {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .step-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .step-emoji {
+            font-size: 3rem;
+            display: block;
+        }
+
+        .step-item span:last-child {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #2D5A6B;
+        }
+
+        .planning-features {
+            background: white;
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        .feature-intro {
+            margin-bottom: 2rem;
+        }
+
+        .feature-intro p {
+            font-size: 1.2rem;
+            color: #2D5A6B;
+            font-weight: 600;
+        }
+
+        .feature-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.1rem;
+            color: #333;
+        }
+
+        .feature-bullet {
+            font-size: 1.5rem;
+            min-width: 30px;
+        }
+
+        .coming-soon {
+            background: linear-gradient(135deg, #F4A24C, #E6912A);
+            color: white;
+            padding: 1rem 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .coming-soon p {
+            margin: 0;
+            font-size: 1.1rem;
+        }
+
+        .planning-conclusion {
+            margin-top: 3rem;
+        }
+
+        .planning-conclusion h3 {
+            font-size: 2rem;
+            color: #2D5A6B;
+            margin-bottom: 1rem;
+        }
+
+        .planning-conclusion p {
+            font-size: 1.2rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Instagram Section */
+        .instagram-section {
+            padding: 5rem 0;
+            background: linear-gradient(135deg, #2D5A6B 0%, #3A7A92 50%, #4A9BC2 100%);
+        }
+
+        .instagram-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .instagram-section .section-title {
+            color: white;
+        }
+
+        .instagram-intro {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 3rem;
+        }
+
+        .video-showcase {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 25px;
+            padding: 3rem 2rem;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .video-container {
+            margin-bottom: 2rem;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 3rem;
-        }
-
-        .feature-card {
-            background: white;
-            border-radius: 25px;
-            padding: 3rem 2.5rem;
-            text-align: center;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(244, 162, 76, 0.1);
-        }
-
-        .feature-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
+        .video-container video {
             width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(244, 162, 76, 0.05), transparent);
-            transition: left 0.6s;
-        }
-
-        .feature-card:hover::before {
-            left: 100%;
-        }
-
-        .feature-card:hover {
-            transform: translateY(-15px);
-            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
-            border-color: rgba(244, 162, 76, 0.3);
-        }
-
-        .feature-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            height: auto;
             display: block;
-            filter: grayscale(0.2);
         }
 
-        .feature-card h3 {
-            color: #2D5A6B;
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            font-weight: 700;
-        }
-
-        .feature-card p {
-            color: #666;
-            font-size: 1.1rem;
-            line-height: 1.6;
-        }
-
-        /* Process Section */
-        .process {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #2D5A6B, #4A9BC2);
-            position: relative;
-        }
-
-        .process::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><polygon points="50,0 100,38 82,100 18,100 0,38" fill="rgba(255,255,255,0.03)"/></svg>');
-        }
-
-        .process-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            position: relative;
-            z-index: 1;
-        }
-
-        .process-title {
-            text-align: center;
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .process-subtitle {
-            text-align: center;
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.8);
-            margin-bottom: 4rem;
-        }
-
-        .process-steps {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 3rem;
-            position: relative;
-        }
-
-        .process-step {
-            background: rgba(255, 255, 255, 0.12);
-            backdrop-filter: blur(15px);
-            border-radius: 25px;
-            padding: 3rem 2rem;
-            text-align: center;
-            color: white;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s;
-        }
-
-        .process-step:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.18);
-        }
-
-        .step-number {
-            background: linear-gradient(45deg, #F4A24C, #E6912A);
-            color: white;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
+        .instagram-cta {
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
-            font-weight: bold;
-            margin: 0 auto 2rem;
-            box-shadow: 0 10px 25px rgba(244, 162, 76, 0.3);
         }
 
-        .process-step h3 {
-            font-size: 1.6rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+        .instagram-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: linear-gradient(45deg, #F56040, #E4405F, #C13584);
+            color: white;
+            text-decoration: none;
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(228, 64, 95, 0.4);
         }
 
-        .process-step p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            line-height: 1.6;
+        .instagram-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(228, 64, 95, 0.5);
         }
 
-        /* Stats Section */
-        .stats {
-            padding: 4rem 0;
-            background: #F4A24C;
+        .instagram-icon {
+            font-size: 1.5rem;
         }
 
-        .stats-container {
+        /* Partners Section */
+        .partners {
+            padding: 5rem 0;
+            background: #FAFAFA;
+        }
+
+        .partners-container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 2rem;
+        }
+
+        .partners-intro {
             text-align: center;
-        }
-
-        .stat-item h3 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 0.5rem;
-            font-weight: 800;
-        }
-
-        .stat-item p {
-            color: rgba(255, 255, 255, 0.9);
             font-size: 1.2rem;
-            font-weight: 600;
-        }
-
-        /* Final CTA Section */
-        .final-cta {
-            padding: 6rem 0;
-            background: linear-gradient(135deg, #1a4a5a, #2D5A6B);
-            text-align: center;
-            position: relative;
-        }
-
-        .final-cta::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="80" cy="40" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="40" cy="80" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
-        }
-
-        .final-cta-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .final-cta h2 {
-            font-size: 3rem;
-            color: white;
-            margin-bottom: 1rem;
-            font-weight: 800;
-        }
-
-        .final-cta p {
-            font-size: 1.3rem;
-            color: rgba(255, 255, 255, 0.9);
+            color: #666;
             margin-bottom: 3rem;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
 
+        .partners-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .partner-card {
+            background: white;
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .partner-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(244, 162, 76, 0.1), transparent);
+            transition: left 0.5s;
+        }
+
+        .partner-card:hover::before {
+            left: 100%;
+        }
+
+        .partner-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .partner-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .partner-card h3 {
+            color: #2D5A6B;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .partner-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .partner-cta {
+            text-align: center;
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, #2D5A6B, #4A9BC2);
+            border-radius: 20px;
+            color: white;
+        }
+
+        .partner-cta h3 {
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .partner-contact-btn {
+            background: #F4A24C;
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(244, 162, 76, 0.3);
+        }
+
+        .partner-contact-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(244, 162, 76, 0.4);
+            background: #E6912A;
+        }
+
+        /* Final CTA Section */
+        .final-cta {
+            padding: 5rem 0;
+            background: #F4A24C;
+            text-align: center;
+        }
+
+        .final-cta h2 {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .final-cta p {
+            font-size: 1.2rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+        }
+
         .download-buttons {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         .download-btn {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
+            background: #2D5A6B;
             color: white;
-            padding: 1.5rem 3rem;
-            border-radius: 20px;
+            padding: 1rem 2rem;
+            border-radius: 15px;
             text-decoration: none;
             display: flex;
             align-items: center;
-            gap: 1rem;
+            gap: 0.5rem;
             transition: all 0.3s;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            font-weight: 600;
-            font-size: 1.1rem;
         }
 
         .download-btn:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-5px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            background: #1a4a5a;
+            transform: translateY(-3px);
+        }
+
+        /* Footer */
+        .footer {
+            background: #2D5A6B;
+            padding: 2rem 0;
+            text-align: center;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+
+        .footer-container p {
+            color: rgba(255, 255, 255, 0.8);
+            margin: 0;
         }
 
         /* Animations */
@@ -591,62 +612,75 @@
             .hero-container {
                 grid-template-columns: 1fr;
                 text-align: center;
-                gap: 2rem;
             }
             
             .hero-content h1 {
-                font-size: 2.8rem;
+                font-size: 2.5rem;
             }
             
-            .process-steps {
-                grid-template-columns: 1fr;
+            .snap-scan-explore {
+                gap: 2rem;
+            }
+            
+            .step-emoji {
+                font-size: 2.5rem !important;
+            }
+            
+            .video-showcase {
+                padding: 2rem 1rem;
             }
             
             .nav-links {
                 display: none;
             }
-            
-            .cta-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .stats-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-        }
-
-        @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 2.2rem;
-            }
-            
-            .download-buttons {
-                flex-direction: column;
-                align-items: center;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Floating Elements -->
-    <div class="floating-elements">
-        <div class="floating-icon">🏛️</div>
-        <div class="floating-icon">🗺️</div>
-        <div class="floating-icon">📍</div>
-    </div>
-
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">CityScan</div>
+            <div class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Building base and steps -->
+                        <rect x="20" y="160" width="160" height="8" fill="#2D5A6B"/>
+                        <rect x="30" y="150" width="140" height="8" fill="#2D5A6B"/>
+                        
+                        <!-- Main building structure -->
+                        <rect x="40" y="80" width="120" height="70" fill="#2D5A6B"/>
+                        
+                        <!-- Triangular roof/pediment -->
+                        <path d="M35 80 L100 40 L165 80 Z" fill="#2D5A6B"/>
+                        
+                        <!-- Horizontal beam under roof -->
+                        <rect x="35" y="80" width="130" height="8" fill="#2D5A6B"/>
+                        
+                        <!-- Columns -->
+                        <rect x="55" y="90" width="8" height="50" fill="#F4F4F4"/>
+                        <rect x="75" y="90" width="8" height="50" fill="#F4F4F4"/>
+                        <rect x="95" y="90" width="8" height="50" fill="#F4F4F4"/>
+                        <rect x="115" y="90" width="8" height="50" fill="#F4F4F4"/>
+                        <rect x="135" y="90" width="8" height="50" fill="#F4F4F4"/>
+                        
+                        <!-- Column capitals -->
+                        <rect x="52" y="85" width="14" height="6" fill="#2D5A6B"/>
+                        <rect x="72" y="85" width="14" height="6" fill="#2D5A6B"/>
+                        <rect x="92" y="85" width="14" height="6" fill="#2D5A6B"/>
+                        <rect x="112" y="85" width="14" height="6" fill="#2D5A6B"/>
+                        <rect x="132" y="85" width="14" height="6" fill="#2D5A6B"/>
+                        
+                        <!-- Magnifying glass -->
+                        <circle cx="140" cy="120" r="25" fill="none" stroke="#2D5A6B" stroke-width="6"/>
+                        <path d="158 138 L175 155" stroke="#2D5A6B" stroke-width="6" stroke-linecap="round"/>
+                    </svg>
+                </div>
+                CitiScan
+            </div>
             <div class="nav-links">
-                <a href="#features">Features</a>
-                <a href="#how-it-works">How it Works</a>
+                <a href="#planning">Planning</a>
+                <a href="#instagram">Instagram</a>
+                <a href="#partners">Partners</a>
                 <a href="#pricing">Pricing</a>
                 <a href="#contact">Contact</a>
             </div>
@@ -657,31 +691,19 @@
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Turn Your Photos Into <span class="highlight">Perfect Adventures</span></h1>
-                <p>AI-powered itineraries in seconds. Just snap, scan, and explore like never before.</p>
-                <div class="cta-buttons">
-                    <a href="#" class="cta-primary" onclick="startDemo()">Start Exploring</a>
-                    <a href="#" class="cta-secondary">Watch Demo</a>
-                </div>
+                <h1>Turn any photo into your perfect sightseeing adventure</h1>
+                <p>AI-powered itineraries in seconds. Just snap, explore, and discover hidden gems around you.</p>
+                <button class="cta-button" onclick="startDemo()">Start Exploring Now</button>
             </div>
             <div class="hero-visual">
                 <div class="phone-mockup">
                     <div class="screen">
-                        <div class="demo-photo">🏛️</div>
-                        <h4 style="margin-bottom: 1rem; font-size: 1.2rem;">Photo Analyzed</h4>
+                        <div class="demo-photo">📸</div>
+                        <h4>Photo Analyzed</h4>
                         <div class="route-preview">
-                            <div class="route-item">
-                                <span>🎯 5 attractions found</span>
-                            </div>
-                            <div class="route-item">
-                                <span>⏱️ 3h optimized route</span>
-                            </div>
-                            <div class="route-item">
-                                <span>📍 Start: Pantheon</span>
-                            </div>
-                            <div class="route-item">
-                                <span>🚶‍♂️ 2.1 km walking</span>
-                            </div>
+                            <p>🗺️ 5 attractions found</p>
+                            <p>⏱️ 3h optimized route</p>
+                            <p>📍 Start: Eiffel Tower</p>
                         </div>
                     </div>
                 </div>
@@ -689,99 +711,176 @@
         </div>
     </section>
 
-    <!-- Features Section -->
-    <section class="features" id="features">
-        <div class="features-container">
-            <h2 class="section-title">Why Choose CityScan?</h2>
-            <p class="section-subtitle">Revolutionary AI technology meets personalized travel experiences</p>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <span class="feature-icon">🧠</span>
-                    <h3>Advanced AI Recognition</h3>
-                    <p>Our cutting-edge AI analyzes your photos to instantly identify your location and discover the best nearby attractions, landmarks, and hidden gems.</p>
+    <!-- Planning Section -->
+    <section class="planning" id="planning">
+        <div class="planning-container">
+            <h2 class="section-title">Planning Your Next Trip?</h2>
+            
+            <div class="planning-content">
+                <div class="planning-problem">
+                    <p class="problem-text">We're all tired of spending more time planning than experiencing. We Google, search, compare, read reviews… and still miss what's right around us.</p>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">🎯</span>
-                    <h3>Smart Route Optimization</h3>
-                    <p>Intelligent algorithms create the perfect walking route based on your available time, interests, and current conditions for maximum exploration efficiency.</p>
+                
+                <div class="planning-solution">
+                    <p class="solution-text">With CitiScan, all you need is your camera. Take a photo of where you are — and let AI build you a personalized sightseeing tour, instantly.</p>
+                    
+                    <div class="snap-scan-explore">
+                        <div class="step-item">
+                            <span class="step-emoji">📸</span>
+                            <span>Snap</span>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-emoji">🔍</span>
+                            <span>Scan</span>
+                        </div>
+                        <div class="step-item">
+                            <span class="step-emoji">🚶‍♂️</span>
+                            <span>Explore</span>
+                        </div>
+                    </div>
                 </div>
-                <div class="feature-card">
-                    <span class="feature-icon">📱</span>
-                    <h3>Offline-First Design</h3>
-                    <p>Download your personalized itineraries and access detailed information, maps, and audio guides even without an internet connection.</p>
+                
+                <div class="planning-features">
+                    <div class="feature-intro">
+                        <p>CitiScan is a web app that lets you take a photo of your surroundings — a building, monument, or square — and instantly:</p>
+                    </div>
+                    
+                    <div class="feature-list">
+                        <div class="feature-item">
+                            <span class="feature-bullet">🤖</span>
+                            <span>Recognizes the place with AI image recognition + GPS</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-bullet">🗺️</span>
+                            <span>Suggests a walking itinerary featuring nearby must-see spots</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-bullet">📚</span>
+                            <span>Tells the story of each location (history, fun facts, photos)</span>
+                        </div>
+                        <div class="feature-item">
+                            <span class="feature-bullet">⏰</span>
+                            <span>Fits your timeframe (1 hour, half-day, full-day)</span>
+                        </div>
+                    </div>
+                    
+                    <div class="coming-soon">
+                        <p><strong>Coming soon:</strong> Custom themes like art, food, nature, architecture</p>
+                    </div>
+                </div>
+                
+                <div class="planning-conclusion">
+                    <h3>No more planning. Just point and go.</h3>
+                    <p>Tourism becomes spontaneous and smart — perfect for last-minute plans or quick alternatives!</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Process Section -->
-    <section class="process" id="how-it-works">
-        <div class="process-container">
-            <h2 class="process-title">How CityScan Works</h2>
-            <p class="process-subtitle">Three simple steps to unlock your perfect adventure</p>
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3>Snap a Photo</h3>
-                    <p>Simply take a picture of your surroundings - any landmark, building, or street view will work perfectly</p>
+    <!-- Instagram Section -->
+    <section class="instagram-section" id="instagram">
+        <div class="instagram-container">
+            <h2 class="section-title">Follow us on Instagram</h2>
+            <p class="instagram-intro">See CitiScan in action and discover amazing places around the world</p>
+            
+            <div class="video-showcase">
+                <div class="video-container">
+                    <video controls autoplay muted loop>
+                        <source src="https://files.qualifio.com/library/chloe_test_0/videos/7879207671226573902screenrecording_07-01-2025_17-41-22_1%20(1).mov" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
                 </div>
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3>AI Analysis</h3>
-                    <p>Our advanced AI instantly identifies your location and scans for nearby cultural sites, attractions, and points of interest</p>
-                </div>
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3>Explore & Discover</h3>
-                    <p>Receive your personalized itinerary with optimized routes, detailed information, and insider tips for each destination</p>
+                
+                <div class="instagram-cta">
+                    <a href="https://www.instagram.com" target="_blank" class="instagram-btn">
+                        <span class="instagram-icon">📷</span>
+                        <span>Follow @CitiScan</span>
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Stats Section -->
-    <section class="stats">
-        <div class="stats-container">
-            <div class="stat-item">
-                <h3>250K+</h3>
-                <p>Happy Travelers</p>
+    <!-- Partners Section -->
+    <section class="partners" id="partners">
+        <div class="partners-container">
+            <h2 class="section-title">Want to Collaborate With Us?</h2>
+            <p class="partners-intro">Join CitiScan's network and reach travelers at the perfect moment. We connect businesses with curious explorers ready to discover authentic local experiences.</p>
+            
+            <div class="partners-grid">
+                <div class="partner-card">
+                    <div class="partner-icon">🍽️</div>
+                    <h3>Restaurants</h3>
+                    <p>Promote your restaurant by becoming a featured stop on CitiScan's smart walking tours. Reach hungry travelers right when they're nearby and looking for authentic local food experiences.</p>
+                    <p>Increase spontaneous foot traffic and boost sales by offering exclusive CitiScan user deals and promotions.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-icon">🏛️</div>
+                    <h3>Museums & Cultural Sites</h3>
+                    <p>Get discovered at the perfect moment. CitiScan drives curious tourists to your museum or cultural site when they're already exploring nearby.</p>
+                    <p>Increase visits by appearing in personalized itineraries with your story, hours, and ticket info. Partner with us to promote exhibitions and special events effortlessly.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-icon">✈️</div>
+                    <h3>Airlines</h3>
+                    <p>Enhance your customer experience beyond the flight. Integrate CitiScan as a digital concierge to offer passengers instant local discovery during layovers or arrivals.</p>
+                    <p>Improve passenger satisfaction, reduce travel stress, and create new ancillary revenue streams with branded tours and offers.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-icon">🏨</div>
+                    <h3>Hotels & Hostels</h3>
+                    <p>Promote CitiScan as your guest's go-to travel planner. Help them quickly find things to do, plan their days, and discover local gems — all from a photo.</p>
+                    <p>When plans change, they have instant alternatives on hand. Guarantee your guests always have something exciting to do, leaving them happier and more loyal.</p>
+                </div>
+                
+                <div class="partner-card">
+                    <div class="partner-icon">🌍</div>
+                    <h3>Tourism Boards & Cities</h3>
+                    <p>Empower your visitors with a smart, scalable digital assistant. Use CitiScan to guide tourists toward authentic experiences, reduce overcrowding at hotspots, and deliver real-time official info.</p>
+                    <p>Support local businesses, promote sustainable tourism, and gain insights into visitor patterns via data analytics.</p>
+                </div>
             </div>
-            <div class="stat-item">
-                <h3>500+</h3>
-                <p>Cities Covered</p>
-            </div>
-            <div class="stat-item">
-                <h3>10K+</h3>
-                <p>Attractions Mapped</p>
-            </div>
-            <div class="stat-item">
-                <h3>4.9★</h3>
-                <p>User Rating</p>
+            
+            <div class="partner-cta">
+                <h3>Ready to partner with CitiScan and enhance your visitor experience?</h3>
+                <button class="partner-contact-btn" onclick="contactPartners()">Contact us today to get started!</button>
             </div>
         </div>
     </section>
 
     <!-- Final CTA Section -->
     <section class="final-cta">
-        <div class="final-cta-content">
-            <h2>Ready to Explore the World Differently?</h2>
-            <p>Join hundreds of thousands of travelers who discover hidden gems and create unforgettable memories with CityScan</p>
-            <div class="download-buttons">
-                <a href="#" class="download-btn">
-                    <span>📱</span>
-                    Download App
-                </a>
-                <a href="#" class="download-btn">
-                    <span>🌐</span>
-                    Try Web Version
-                </a>
-            </div>
+        <h2>Ready to explore the world differently?</h2>
+        <p>Join over 50,000 travelers discovering hidden gems with CitiScan</p>
+        <div class="download-buttons">
+            <a href="#" class="download-btn">
+                <span>📱</span>
+                Download App
+            </a>
+            <a href="#" class="download-btn">
+                <span>🌐</span>
+                Try Online
+            </a>
         </div>
     </section>
 
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <p>&copy; 2025 CitiScan. All rights reserved.</p>
+        </div>
+    </footer>
+
     <script>
         function startDemo() {
-            alert("Demo: Take a photo to discover amazing places around you!");
+            alert("Demo: Take a photo to discover wonders around you!");
+        }
+
+        function contactPartners() {
+            alert("Partnership inquiry: We'll be in touch within 24 hours!");
         }
 
         // Smooth scrolling for navigation links
@@ -813,49 +912,13 @@
             });
         }, observerOptions);
 
-        // Observe feature cards
-        document.querySelectorAll('.feature-card').forEach(card => {
+        // Observe animated elements
+        document.querySelectorAll('.partner-card, .planning-features, .snap-scan-explore, .video-showcase').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s, transform 0.6s';
             observer.observe(card);
         });
-
-        // Counter animation for stats
-        function animateCounters() {
-            const counters = document.querySelectorAll('.stat-item h3');
-            counters.forEach(counter => {
-                const target = parseInt(counter.textContent.replace(/[^\d]/g, ''));
-                const suffix = counter.textContent.replace(/[\d]/g, '');
-                let current = 0;
-                const increment = target / 50;
-                
-                const timer = setInterval(() => {
-                    current += increment;
-                    if (current >= target) {
-                        counter.textContent = target + suffix;
-                        clearInterval(timer);
-                    } else {
-                        counter.textContent = Math.floor(current) + suffix;
-                    }
-                }, 50);
-            });
-        }
-
-        // Trigger counter animation when stats section comes into view
-        const statsObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateCounters();
-                    statsObserver.unobserve(entry.target);
-                }
-            });
-        });
-
-        const statsSection = document.querySelector('.stats');
-        if (statsSection) {
-            statsObserver.observe(statsSection);
-        }
     </script>
 </body>
 </html>
